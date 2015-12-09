@@ -1,6 +1,7 @@
 # Meetup: CLT-K8S-001
 # Date: 15/12/09
 # Presenter: Brandon B. Jozsa
+# Original Credits: Kelsey Hightower (Google)
 # Purpose: Dockerfile Example
 # Consul Docs: http://www.consul.io/docs/index.html
 FROM ubuntu:14.04
