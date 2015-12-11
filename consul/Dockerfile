@@ -1,5 +1,5 @@
-# Meetup: CLT-K8S-001
-# Date: 15/12/09
+# Meetup: CCOG-001
+# Date: 12/09/15
 # Presenter: Brandon B. Jozsa
 # Original Credits: Kelsey Hightower (Google)
 # Purpose: Dockerfile Example
