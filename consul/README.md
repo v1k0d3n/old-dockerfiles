@@ -1,3 +1,5 @@
+[![Docker Repository on Quay](https://quay.io/repository/v1k0d3n/consul/status "Docker Repository on Quay")](https://quay.io/repository/v1k0d3n/consul)
+
 # Consul: Service Discovery Container
 It must be mentioned that this container is provided in a similar fashion to [Kelsey Hightower's](https://twitter.com/kelseyhightower) [consul container](https://github.com/kelseyhightower/docker-consul). It's been updated to the most recent version (at time of writing 0.5.2), but verify this is the case. If you have issues, please open an issue so I can make the correct changes. It's hard to keep up sometimes!
 
