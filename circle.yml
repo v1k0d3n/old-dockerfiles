@@ -1,3 +1,6 @@
+general:
+  build_dir: consul
+
 machine:
   services:
     - docker
