@@ -9,7 +9,7 @@ MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 # Update, Upgrade and Install Prerequisites
 RUN apt-get --quiet update && \
     apt-get --quiet upgrade -y && \
-    apt-get update && apt-get install -y && \
+    apt-get update && apt-get install -y \
       unzip \
       && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
