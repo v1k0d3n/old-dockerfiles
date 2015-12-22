@@ -15,8 +15,8 @@ RUN apt-get --quiet update && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Download Consul/Web-UI
-ADD https://dl.bintray.com/mitchellh/consul/0.6.0_linux_amd64.zip /tmp/consul.zip
-ADD https://dl.bintray.com/mitchellh/consul/0.6.0_web_ui.zip /tmp/web_ui.zip
+ADD https://releases.hashicorp.com/consul/0.6.0/consul_0.6.0_linux_amd64.zip /tmp/consul.zip
+ADD https://releases.hashicorp.com/consul/0.6.0/consul_0.6.0_web_ui.zip /tmp/web_ui.zip
 
 # Add Consul Data Directory
 RUN mkdir -p /opt/consul/data
