@@ -1,18 +1,22 @@
 # Meetup: CCOG-001
 # Date: 12/09/15
 # Presenter: Brandon B. Jozsa
-# Original Credits: Kelsey Hightower (Google)
 # Purpose: Dockerfile Example
 # Consul Docs: http://www.consul.io/docs/index.html
-FROM ubuntu:14.04
+FROM quay.io/v1k0d3n/ubuntu-trusty:latest
+MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
-# Update and Install Prerequisites
-RUN apt-get update && apt-get install -y \
-	unzip
+# Update, Upgrade and Install Prerequisites
+RUN apt-get --quiet update && \
+    apt-get --quiet upgrade -y && \
+		apt-get update && apt-get install -y && \
+			unzip \
+			&& \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Download Consul/Web-UI
-ADD https://dl.bintray.com/mitchellh/consul/0.5.2_linux_amd64.zip /tmp/consul.zip
-ADD https://dl.bintray.com/mitchellh/consul/0.5.2_web_ui.zip /tmp/web_ui.zip
+ADD https://dl.bintray.com/mitchellh/consul/0.6.0_linux_amd64.zip /tmp/consul.zip
+ADD https://dl.bintray.com/mitchellh/consul/0.6.0_web_ui.zip /tmp/web_ui.zip
 
 # Add Consul Data Directory
 RUN mkdir -p /opt/consul/data
