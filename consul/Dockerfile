@@ -3,7 +3,7 @@
 # Presenter: Brandon B. Jozsa
 # Purpose: Dockerfile Example
 # Consul Docs: http://www.consul.io/docs/index.html
-FROM quay.io/v1k0d3n/ubuntu-trusty:latest
+FROM quay.io/v1k0d3n/ubuntu-vivid:latest
 MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
 # Update, Upgrade and Install Prerequisites
