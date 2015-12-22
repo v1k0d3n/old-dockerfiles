@@ -5,7 +5,9 @@ FROM ubuntu:14.04
 MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
 # Update and Install Prerequisites
-RUN apt-get update && apt-get upgrade
+RUN apt-get --quiet update && \
+    apt-get --quiet upgrade -y && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Get in, get out
 CMD ["/bin/bash"]
