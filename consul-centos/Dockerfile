@@ -11,7 +11,7 @@ RUN yum update -y && \
     yum install -y \
       unzip \
       && \
-    yum uninstall \
+    yum remove \
       bind && \
     yum clean all
 
