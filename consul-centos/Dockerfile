@@ -7,11 +7,11 @@ FROM centos:latest
 MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
 # Update, Upgrade and Install Prerequisites
-RUN dnf update -y && \
-    dnf install -y \
+RUN yum update -y && \
+    yum install -y \
       unzip \
       && \
-    dnf clean clean all
+    yum clean clean all
 
 # Download Consul/Web-UI
 ADD https://releases.hashicorp.com/consul/0.6.0/consul_0.6.0_linux_amd64.zip /tmp/consul.zip
