@@ -11,7 +11,7 @@ RUN yum update -y && \
     yum install -y \
       unzip \
       && \
-    yum clean clean all
+    yum clean all
 
 # Download Consul/Web-UI
 ADD https://releases.hashicorp.com/consul/0.6.0/consul_0.6.0_linux_amd64.zip /tmp/consul.zip
