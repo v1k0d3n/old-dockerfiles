@@ -11,6 +11,8 @@ RUN yum update -y && \
     yum install -y \
       unzip \
       && \
+    yum uninstall \
+      bind && \
     yum clean all
 
 # Download Consul/Web-UI
