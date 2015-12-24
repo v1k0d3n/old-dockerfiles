@@ -23,8 +23,8 @@ RUN git clone https://github.com/stamparm/maltrail.git && \
 WORKDIR /maltrail
 
 # Add commands to /maltrail/start.sh
-RUN ECHO "/usr/bin/python sensor.py > /var/log/maltrail/sensor.log &" > /maltrail/start.sh
-RUN ECHO "/usr/bin/python server.py > /var/log/maltrail/server.log &" >> /maltrail/start.sh
+RUN echo "/usr/bin/python sensor.py > /var/log/maltrail/sensor.log &" > /maltrail/start.sh
+RUN echo "/usr/bin/python server.py > /var/log/maltrail/server.log &" >> /maltrail/start.sh
 
 # Add exposed ports
 EXPOSE 8338
