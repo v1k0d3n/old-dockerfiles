@@ -30,4 +30,4 @@ RUN echo "/usr/bin/python server.py > /var/log/maltrail/server.log &" >> /maltra
 EXPOSE 8338
 
 # Set the entrypoint for the container
-ENTRYPOINT [/maltrail/start.sh]
+ENTRYPOINT ["/maltrail/start.sh"]
