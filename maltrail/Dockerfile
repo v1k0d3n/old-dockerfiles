@@ -25,6 +25,7 @@ WORKDIR /maltrail
 # Add commands to /maltrail/start.sh
 RUN echo "/usr/bin/python sensor.py > /var/log/maltrail/sensor.log &" > /maltrail/start.sh
 RUN echo "/usr/bin/python server.py > /var/log/maltrail/server.log &" >> /maltrail/start.sh
+RUN chmod 755 /maltrail/start.sh
 
 # Add exposed ports
 EXPOSE 8338
