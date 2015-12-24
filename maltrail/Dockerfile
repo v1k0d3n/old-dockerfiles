@@ -22,13 +22,11 @@ RUN git clone https://github.com/stamparm/maltrail.git && \
 
 WORKDIR /maltrail
 
-# Add commands to /maltrail/start.sh
-RUN echo "/usr/bin/python sensor.py > /var/log/maltrail/sensor.log &" > /maltrail/start.sh
-RUN echo "/usr/bin/python server.py > /var/log/maltrail/server.log &" >> /maltrail/start.sh
-RUN chmod 755 /maltrail/start.sh
+# Start the server-ui on exposed port definition (below)
+CMD "/usr/bin/python server.py"
 
 # Add exposed ports
 EXPOSE 8338
 
 # Set the entrypoint for the container
-ENTRYPOINT ["/maltrail/start.sh"]
+ENTRYPOINT ["/usr/bin/python", "/maltrail/sensor.py"]
