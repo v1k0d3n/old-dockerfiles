@@ -8,7 +8,7 @@ MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
 # Update, Upgrade and Install Prerequisites
 RUN dnf update -y \
-    && dnf install -y unzip tar git ansible gcc python-devel python-netaddr python-openstackclient && dnf remove bind
+    && dnf install -y unzip tar git ansible python-devel python-netaddr python-openstackclient 
 
 # Download Vagrant: Only used for "vagrant up --provider='n' situations(n=openstack or other remote host)"
 # Unfortunately, Hashicorp will require us to manually update our container, because there is no "vagrant.zip"

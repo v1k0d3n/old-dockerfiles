@@ -12,7 +12,7 @@ docker run -d
 ```
 
 ### Notes on Security
-Security is extremely important to me. You will notice that (at the time of writing) this container is flagged with one (1) false positive CVE. The CVE is a "bind" vulnerability at layer 1, although this is a false positive because I remove bind in later layers. Currently, I hate that scanners look at layers, and not at the total sum of the container as built. I'm sure this will change eventually, but I can assure you that bind isn't in this container so the container is not vulnerable to the single CVE as flagged by Clair on Quay.
+This container should pass vulnerability CVE checks.
 
 ### Further Documentation
 I add some Hashicorp packages to the container:
