@@ -25,3 +25,6 @@ RUN curl -O https://releases.hashicorp.com/terraform/0.6.8/terraform_0.6.8_linux
 
 # Now move them...so we can use them
 RUN unzip terraform_0.6.8_linux_amd64.zip -d /usr/bin/ && unzip packer_0.8.6_linux_amd64.zip -d /usr/bin/
+
+# Cleanup
+RUN rm -rf packer_0.8.6_linux_amd64.zip terraform_0.6.8_linux_amd64.zip
