@@ -7,13 +7,13 @@ FROM centos:latest
 MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
 # Update, Upgrade and Install Prerequisites
-RUN dnf update -y \
-    && dnf install -y unzip tar git ansible python-devel python-netaddr python-openstackclient python-troveclient python-heatclient
+RUN yum update -y \
+    && yum install -y unzip tar git ansible python-devel python-netaddr python-openstackclient python-troveclient python-heatclient
 
 # Download Vagrant: Only used for "vagrant up --provider='n' situations(n=openstack or other remote host)"
 # Unfortunately, Hashicorp will require us to manually update our container, because there is no "vagrant.zip"
 #   for the "latest" Vagrant packages.
-RUN dnf install -y https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.rpm && yum clean all
+RUN yum install -y https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.rpm && yum clean all
 
 # Add some working directories
 RUN mkdir -p /home/development
