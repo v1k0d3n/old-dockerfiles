@@ -5,7 +5,7 @@
 # Notes: Taken from danidemi/docker-reveal.js
 #        But I wanted to remove 'branding' and change default options
 #
-FROM debian:jessy
+FROM debian:jessie
 MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
 # Install systems
