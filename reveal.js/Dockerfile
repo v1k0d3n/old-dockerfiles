@@ -10,6 +10,15 @@ MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 RUN apt-get --quiet update && \
     apt-get --quiet upgrade -y
 
+# Run prerequisites:
+RUN apt-get update && apt-get install -y \
+      pandoc \
+      sudo \
+      curl \
+      git \
+      && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Add some protections for wetty:
 RUN groupadd reveal && \
     useradd reveal -m -g reveal -s /bin/bash  && \
@@ -18,14 +27,6 @@ RUN echo "reveal ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/reveal
 RUN chmod 0440 /etc/sudoers.d/reveal  && \
     mkdir /home/reveal/presos && \
     chown reveal:reveal /home/reveal/presos
-
-# Run prerequisites:
-RUN apt-get update && apt-get install -y \
-      pandoc \
-      curl \
-      git \
-      && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Download Reveal.js
 WORKDIR /home
