@@ -2,16 +2,25 @@
 # Maintainer: Brandon B. Jozsa
 # Purpose: reveal.js Presentation Software (my new favorite presentation tool)
 # Documentation: https://github.com/hakimel/reveal.js/
-# Notes: Taken from danidemi/docker-reveal.js
-#        But I wanted to remove 'branding' and change default options
 #
 FROM debian:jessie
 MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
-# Update, Upgrade and Install Prerequisites
+# Update, upgrade and limit layers across our host:
 RUN apt-get --quiet update && \
-    apt-get --quiet upgrade -y && \
-    apt-get update && apt-get install -y \
+    apt-get --quiet upgrade -y
+
+# Add some protections for wetty:
+RUN groupadd reveal && \
+    useradd reveal -m -g reveal -s /bin/bash  && \
+    passwd -d -u reveal
+RUN echo "reveal ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/reveal
+RUN chmod 0440 /etc/sudoers.d/reveal  && \
+    mkdir /home/reveal/presos && \
+    chown reveal:reveal /home/reveal/presos
+
+# Run prerequisites:
+RUN apt-get update && apt-get install -y \
       pandoc \
       curl \
       git \
@@ -20,7 +29,8 @@ RUN apt-get --quiet update && \
 
 # Download Reveal.js
 WORKDIR /home
-RUN git clone https://github.com/hakimel/reveal.js.git
+RUN git clone https://github.com/hakimel/reveal.js.git && \
+    git clone https://github.com/krishnasrinivas/wetty
 
 # Install node.js
 RUN curl -sL https://deb.nodesource.com/setup | bash -
@@ -32,15 +42,27 @@ RUN apt-get install -y \
 WORKDIR /home/reveal.js
 
 # Install Grunt
-RUN npm install -g grunt-cli && npm install
+RUN npm install -g grunt-cli && \
+    npm install
+
+# Change to wetty
+WORKDIR /home/wetty
+RUN npm install && \
+    npm install -g bower && \
+    npm install -g yo && \
+    npm install -g generator-reveal
 
 # Housecleaning Items
 RUN mkdir /home/slides && \
     mv /home/reveal.js/index.html /home/slides/ && \
     ln -s /home/slides/index.html /home/reveal.js/index.html
 
+WORKDIR /home/reveal.js
+
+VOLUME /home/slides
+
 # Add exposed ports
-EXPOSE 8000
+EXPOSE 8000 9000
 
 # Set the entrypoint for the container
 ENTRYPOINT ["grunt", "serve"]
