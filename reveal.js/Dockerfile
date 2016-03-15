@@ -8,56 +8,39 @@
 FROM debian:jessie
 MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
-# Install systems
-RUN apt-get update; apt-get install procps -yy
-RUN apt-get purge procps -yy && apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y
-RUN apt-get -y install curl
+# Update, Upgrade and Install Prerequisites
+RUN apt-get --quiet update && \
+    apt-get --quiet upgrade -y && \
+    apt-get update && apt-get install -y \
+      pandoc \
+      curl \
+      git \
+      && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Download Reveal.js
+WORKDIR /home
+RUN git clone https://github.com/hakimel/reveal.js.git
 
 # Install node.js
 RUN curl -sL https://deb.nodesource.com/setup | bash -
-RUN apt-get install -y nodejs
-RUN apt-get install -y build-essential
+RUN apt-get install -y \
+    nodejs \
+    build-essential
 
-# Install grunt
-RUN npm install -g grunt-cli
+# Change to reveal.js
+WORKDIR /home/reveal.js
 
-# Install git
-RUN apt-get install -y git
+# Install Grunt
+RUN npm install -g grunt-cli && npm install
 
-# Install reveal.js
-RUN git clone https://github.com/hakimel/reveal.js.git
-RUN cd reveal.js; npm install
+# Housecleaning Items
+RUN mkdir /home/slides && \
+    mv /home/reveal.js/index.html /home/slides/ && \
+    ln -s /home/slides/index.html /home/reveal.js/index.html
 
-COPY index.html /slides/
-RUN rm /reveal.js/index.html
-RUN ln -s /slides/index.html /reveal.js/index.html
-
-COPY Gruntfile.js /reveal.js/
-
-# Pandoc search for...
-# http://localhost:8000/reveal.js/css/reveal.min.css
-# http://localhost:8000/reveal.js/js/reveal.min.js
-# http://localhost:8000/reveal.js/lib/js/head.min.js
-# http://localhost:8000/reveal.js/css/print/pdf.css
-# http://localhost:8000/reveal.js/css/theme/simple.css
-# http://localhost:35729/livereload.js?snipver=1
-# http://localhost:8000/reveal.js/css/theme/simple.css
-# http://localhost:8000/reveal.js/css/print/pdf.css
-# http://localhost:8000/reveal.js/plugin/zoom-js
-
-RUN mkdir -p /pandoc/reveal.js/css/lib
-RUN mkdir -p /pandoc/reveal.js/js
-RUN mkdir -p /pandoc/reveal.js/lib/js
-RUN mkdir -p /pandoc/reveal.js/css/print
-RUN ["ln", "-s", "/reveal.js/css/reveal.css",     "/pandoc/reveal.js/css/reveal.min.css"]
-RUN ["ln", "-s", "/reveal.js/js/reveal.js"  ,     "/pandoc/reveal.js/js/reveal.min.js"]
-RUN ["ln", "-s", "/reveal.js/lib/js/head.min.js", "/pandoc/reveal.js/lib/js/head.min.js"]
-RUN ["ln", "-s", "/reveal.js/css/print/pdf.css",  "/pandoc/reveal.js/css/print/pdf.css"]
-RUN ["ln", "-s", "/reveal.js/css/theme/",         "/pandoc/reveal.js/css/theme"]
-RUN ["ln", "-s", "/reveal.js/plugin",             "/pandoc/reveal.js/plugin"]
-
-RUN apt-get -y install pandoc
-
-WORKDIR reveal.js
-CMD grunt serve
+# Add exposed ports
 EXPOSE 8000
+
+# Set the entrypoint for the container
+ENTRYPOINT ["grunt", "serve"]
