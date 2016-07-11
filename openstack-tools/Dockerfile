@@ -24,5 +24,7 @@ RUN chmod 0755 /sbin/stack
 
 # Set the Workdir 
 RUN mkdir /openstack-rc
-
 WORKDIR /openstack-rc
+
+# Execute
+ENTRYPOINT ["/openstack-rc/openstack.sh"]
