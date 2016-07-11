@@ -27,4 +27,4 @@ RUN mkdir /openstack-rc
 WORKDIR /openstack-rc
 
 # Prep Environment
-RUN /openstack-rc/openstack.sh
+ENTRYPOINT ["/openstack-rc/openstack.sh"]
