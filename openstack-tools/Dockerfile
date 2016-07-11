@@ -26,5 +26,5 @@ RUN chmod 0755 /sbin/stack
 RUN mkdir /openstack-rc
 WORKDIR /openstack-rc
 
-# Execute
-ENTRYPOINT ["/openstack-rc/openstack.sh"]
+# Prep Environment
+RUN /openstack-rc/openstack.sh
