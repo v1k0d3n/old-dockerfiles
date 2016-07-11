@@ -9,11 +9,26 @@
 FROM alpine:latest
 MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
+ENV LC_ALL=C \
+    CINDER_ENDPOINT_TYPE=internalURL \
+    NOVA_ENDPOINT_TYPE=internalURL \
+    OS_ENDPOINT_TYPE=internalURL \
+    OS_USERNAME=admin \
+    OS_PASSWORD=password \
+    OS_PROJECT_NAME=admin \
+    OS_TENANT_NAME=admin \
+    OS_AUTH_URL=http://10.1.1.1:5000/v3 \
+    OS_NO_CACHE=1 \
+    OS_USER_DOMAIN_NAME=Default \
+    OS_PROJECT_DOMAIN_NAME=Default \
+    OS_IDENTITY_API_VERSION=3 \
+    OS_AUTH_VERSION=3
+
 # Update, Upgrade and Install Prerequisites
 RUN apk add --update --no-cache \
-      python py-pip git python-dev libffi libffi-dev \
-      openssl openssl-dev build-base iputils bash curl linux-headers \
-      && rm -rf /var/cache/apk/*
+    python py-pip git python-dev libffi libffi-dev \
+    openssl openssl-dev build-base iputils bash curl linux-headers \
+    && rm -rf /var/cache/apk/*
 
 # Install Openstack CLI Tools
 RUN pip install python-openstackclient
@@ -27,4 +42,4 @@ RUN mkdir /openstack-rc
 WORKDIR /openstack-rc
 
 # Prep Environment
-ENTRYPOINT ["/openstack-rc/openstack.sh"]
+#ENTRYPOINT ["/openstack-rc/openstack.sh"]
