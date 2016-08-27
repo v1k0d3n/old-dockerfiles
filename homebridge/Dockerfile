@@ -46,7 +46,8 @@ RUN npm install -g homebridge \
     homebridge-philipshue homebridge-wink \
     homebridge-liftmaster \
     homebridge-ifttt \
-    homebridge-nest --unsafe-perm
+    homebridge-nest \
+    homebridge-wink --unsafe-perm
 
 ##################################################
 # Start                                          #
