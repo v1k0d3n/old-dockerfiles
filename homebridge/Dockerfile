@@ -42,7 +42,11 @@ RUN npm install -g homebridge \
     homebridge-luxtronik2 \
     homebridge-people \
     homebridge-mqttswitch \
-    homebridge-edomoticz --unsafe-perm
+    homebridge-edomoticz \
+    homebridge-philipshue homebridge-wink \
+    homebridge-liftmaster \
+    homebridge-ifttt \
+    homebridge-nest --unsafe-perm
 
 ##################################################
 # Start                                          #
