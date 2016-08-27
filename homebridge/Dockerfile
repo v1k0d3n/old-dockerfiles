@@ -43,7 +43,7 @@ RUN npm install -g homebridge \
     homebridge-people \
     homebridge-mqttswitch \
     homebridge-edomoticz \
-    homebridge-philipshue homebridge-wink \
+    homebridge-philipshue \
     homebridge-liftmaster \
     homebridge-ifttt \
     homebridge-nest \
