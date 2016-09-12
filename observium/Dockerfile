@@ -5,11 +5,6 @@
 FROM ubuntu:latest
 MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
-#RUN apt-get --quiet update && \
-#    apt-get --quiet upgrade -y && \
-#    DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-php5 php5-cli php5-mysql php5-gd php5-snmp php-pear snmp graphviz php5-mcrypt php5-json subversion mysql-server mysql-client rrdtool fping imagemagick whois mtr-tiny nmap ipmitool python-mysqldb wget \
-#    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 RUN apt-get update && \
     apt-get -y upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install libapache2-mod-php5 php5-cli php5-mysql php5-gd php5-snmp php-pear snmp graphviz php5-mcrypt php5-json subversion mysql-server mysql-client rrdtool fping imagemagick whois mtr-tiny nmap ipmitool python-mysqldb wget
