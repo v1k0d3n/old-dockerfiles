@@ -1,4 +1,4 @@
-**NOTE:** Image `v1k0d3n/cfssl-kubernetes:v0.1.0` has been signed.
+**NOTE:** Image [v1k0d3n/cfssl-kubernetes:v0.1.0](https://hub.docker.com/r/v1k0d3n/cfssl-kubernetes/tags/) is signed.
 
 This container is based on the instructions outlined in [Kubernertes Certificate Administration](https://kubernetes.io/docs/concepts/cluster-administration/certificates/).
 
