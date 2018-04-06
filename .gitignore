@@ -1,0 +1,3 @@
+/cfssl/pki/*.pem
+/cfssl/pki/*.csr
+/cfssl/example/*.json
