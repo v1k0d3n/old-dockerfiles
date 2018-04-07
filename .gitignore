@@ -2,6 +2,6 @@
 .DS_Store
 
 # CFSSL:
-/cfssl/pki/*.pem
-/cfssl/pki/*.csr
-/cfssl/example/*.json
+./cfssl-kubernetes/pki/*.csr
+./cfssl-kubernetes/pki/*.pem
+./cfssl-kubernetes/example/*.json
