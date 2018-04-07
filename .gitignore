@@ -1,3 +1,7 @@
+# Localized:
+.DS_Store
+
+# CFSSL:
 /cfssl/pki/*.pem
 /cfssl/pki/*.csr
 /cfssl/example/*.json
