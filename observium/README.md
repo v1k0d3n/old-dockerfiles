@@ -1,6 +1,1 @@
-[![Docker Repository on Quay](https://quay.io/repository/v1k0d3n/consul/status "Docker Repository on Quay")](https://quay.io/repository/v1k0d3n/ubuntu-observium)
-
-# Observium Network Monitoring Tool
-I wanted to try something other than Cacti, so here's an attempt at Observium.
-
-Pushing change on 16/10/13
+Not maintained. See something like this [docker-observium](https://github.com/somsakc/docker-observium/tree/master/amd64) if you're looking for something more relevant.

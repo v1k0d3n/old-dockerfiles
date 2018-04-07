@@ -34,8 +34,8 @@ RUN apk add --update --no-cache \
 RUN pip install python-openstackclient
 
 # Install stack Helper Script. Details: https://github.com/larsks/openstack-tools
-RUN curl -sSL https://raw.githubusercontent.com/larsks/openstack-tools/master/stack -o /sbin/stack
-RUN chmod 0755 /sbin/stack
+RUN curl -sSL https://raw.githubusercontent.com/larsks/openstack-tools/master/stack -o /usr/local/bin/stack
+RUN chmod +x /usr/local/bin/stack
 
 # Set the Workdir 
 RUN mkdir /openstack-rc
