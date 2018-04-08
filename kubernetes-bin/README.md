@@ -37,9 +37,10 @@ docker run -it v1k0d3n/v1k0d3n/kubernetes-server:v1.9.6 <command> version
 - kubelet
 - mounter
 
+Look at the Dockerfile for `ENV` settings. All bins are located in `WORKDIR` according to `version`, `arch`, `type` and `mode` (see example below).
 
 ```
-$ docker run -it v1k0d3n/kubernetes-server:v1.9.6 ls -asl /opt/kubernetes/bin/
+$ docker run -it v1k0d3n/kubernetes-server:v1.9.6 ls -asl /usr/local/share/v1.9.6-amd64-linux-kubernetes-client/bin 
 total 1293528
      4 drwxr-xr-x    1 root     root          4096 Apr  8 18:07 .
      4 drwxr-xr-x    1 root     root          4096 Apr  8 17:55 ..
