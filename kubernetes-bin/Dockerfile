@@ -30,8 +30,9 @@ RUN  set | grep ARCH > /opt/kubernetes/VERSION ;\
      set | grep VERSION_KUBERNETES >> /opt/kubernetes/VERSION
 
 # Single line may help when rebuilding locally:
-RUN  curl -L https://storage.googleapis.com/kubernetes-release/release/${VERSION_KUBERNETES}/kubernetes-${MODE}-${TYPE}-${ARCH}.tar.gz -o /tmp/${VERSION_KUBERNETES}-${ARCH}-${TYPE}-kubernetes-${MODE}/${VERSION_KUBERNETES}-${ARCH}-${TYPE}-kubernetes-${MODE}.tgz ;\
-     cd /tmp/${VERSION_KUBERNETES}-${ARCH}-${TYPE}-kubernetes-${MODE}/ ;\
+RUN  curl -L https://storage.googleapis.com/kubernetes-release/release/${VERSION_KUBERNETES}/kubernetes-${MODE}-${TYPE}-${ARCH}.tar.gz -o /tmp/${VERSION_KUBERNETES}-${ARCH}-${TYPE}-kubernetes-${MODE}/${VERSION_KUBERNETES}-${ARCH}-${TYPE}-kubernetes-${MODE}.tgz
+
+RUN  cd /tmp/${VERSION_KUBERNETES}-${ARCH}-${TYPE}-kubernetes-${MODE}/ ;\
      tar --strip-components=1 -zxvf ${VERSION_KUBERNETES}-${ARCH}-${TYPE}-kubernetes-${MODE}.tgz ;\
      mv /tmp/${VERSION_KUBERNETES}-${ARCH}-${TYPE}-kubernetes-${MODE}/${MODE}/bin/* /opt/kubernetes/bin/ ;\
      rm -rf /opt/kubernetes/bin/*.docker_tag \
