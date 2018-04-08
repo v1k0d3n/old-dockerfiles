@@ -1,7 +1,11 @@
-**NOTE:** Image [v1k0d3n/kubernetes-server:v1.9.6](https://hub.docker.com/r/v1k0d3n/kubernetes-server/tags/) is signed.
+## Images Available
+The following images are available:Image [v1k0d3n/kubernetes-server:v1.9.6](https://hub.docker.com/r/v1k0d3n/kubernetes-server/tags/) is signed.
+- **Client:** [v1k0d3n/kubernetes-client](https://hub.docker.com/r/v1k0d3n/kubernetes-client/tags/) (signed)
+- **Node:** [v1k0d3n/kubernetes-node](https://hub.docker.com/r/v1k0d3n/kubernetes-node/tags/) (signed)
+- **Server:** [v1k0d3n/kubernetes-server](https://hub.docker.com/r/v1k0d3n/kubernetes-server/tags/) (signed)
 
 ## Purpose
-Use this container to deploy common Kubernetes binaries via your container runtime. This container can also be used to start a Kubernetes cluster with the correct mappings, as `/opt/kubernetes/bin/` has been added to the container `$PATH`.
+Use this container to deploy common Kubernetes binaries via a standard container runtime. This image can also be used to start a Kubernetes cluster with the correct mappings. The directory `/opt/kubernetes/bin/` is the `WORKDIR` and is added to `$PATH`.
 
 1. You can run the container (by default) like:
 ```
@@ -10,7 +14,16 @@ docker run -it v1k0d3n/v1k0d3n/kubernetes-server:v1.9.6 <command> version
 
 ## Details
 
-**Binaries Included:** <br>
+**Client Binaries Included:** <br>
+- kubectl
+
+**Node Binaries Included:** <br>
+- kubeadm
+- kubectl
+- kube-proxy
+- kubelet
+
+**Server Binaries Included:** <br>
 - apiextensions-apiserver
 - cloud-controller-manager
 - hyperkube
