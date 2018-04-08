@@ -9,7 +9,7 @@ MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
 ARG ARCH="amd64"
 ARG TYPE="linux"
-ARG MODE="client"
+ARG MODE="server"
 ARG VERSION_KUBERNETES="v1.9.6"
 
 ENV ARCH=$ARCH
