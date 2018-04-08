@@ -1,5 +1,6 @@
 # Localized:
 .DS_Store
+./kubernetes-federation/
 
 # CFSSL:
 ./cfssl-kubernetes/pki/*.csr
