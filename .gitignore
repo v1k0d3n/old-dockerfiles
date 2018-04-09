@@ -3,6 +3,6 @@
 kubernetes-federation/
 
 # CFSSL:
-./cfssl-kubernetes/pki/*.csr
-./cfssl-kubernetes/pki/*.pem
-./cfssl-kubernetes/example/*.json
+cfssl-kubernetes/pki/*.csr
+cfssl-kubernetes/pki/*.pem
+cfssl-kubernetes/pki/input
