@@ -2,7 +2,7 @@ FROM golang:1.9.4-alpine3.7
 MAINTAINER Brandon B. Jozsa <bjozsa@jinkit.com>
 
 ARG  MASTER_IP="192.168.3.21"
-ARG  MASTER_CLUSTER_IP="192.168.3.21"
+ARG  MASTER_CLUSTER_IP="100.64.30.25"
 ARG  CFSSL_INPUT="/usr/local/share/cfssl/input"
 ARG  CFSSL_OUTPUT="/usr/local/share/cfssl/output"
 ARG  CFSSL_PKI="/pki"
