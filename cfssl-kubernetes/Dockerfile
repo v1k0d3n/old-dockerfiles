@@ -41,6 +41,7 @@ RUN  set | grep MASTER_ > /usr/local/share/cfssl/.vars ;\
 
 RUN  apk update ;\
      apk add --no-cache \
+       bash \
        g++ \
        gcc \
        gettext \
@@ -51,4 +52,4 @@ RUN  go get -u github.com/cloudflare/cfssl/cmd/...
 COPY input ${CFSSL_INPUT}
 COPY entrypoint.sh /entrypoint.sh
 
-CMD [ "sh", "/entrypoint.sh"  ]
+CMD [ "bash", "/entrypoint.sh"  ]
