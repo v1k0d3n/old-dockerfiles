@@ -11,4 +11,6 @@ cp /go/bin/hostess /tmp/hostess
 HOSTESS
 ```
 
+I realize this isn't the most efficient container (size-wise) and that it really should be considered for other architectures. I'm not against PR's if you want to submit one. I just really had to get this done quickly for a usecase/demo I'm in the middle of working on.
+
 For any advanced usage, simply override the entrypoint `CMD` and use `<command>` like normal.
